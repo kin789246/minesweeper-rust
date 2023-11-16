@@ -1,0 +1,25 @@
+[package]
+name = "minesweeper-rust"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+debug = ["board_plugin/debug", "bevy-inspector-egui"]
+
+[dependencies]
+bevy = "0.12"
+board_plugin = { path = "board_plugin" }
+
+bevy-inspector-egui = { version = "0.21.0", optional = true }
+
+[workspace]
+members = [
+    "board_plugin"
+]
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
